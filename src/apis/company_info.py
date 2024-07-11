@@ -89,7 +89,7 @@ def get_company_grade(symbol):
     return jsonify(data)
 
 # returns analyst estimates of a company
-@company_info_api.routes('/company/analyst-estimates/<symbol>', methods=['GET'])
+@company_info_api.route('/company/analyst-estimates/<symbol>', methods=['GET'])
 def get_company_analyst_estimates(symbol):
     period = request.args.get('period')
     limit = request.args.get('limit')
