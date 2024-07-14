@@ -22,3 +22,10 @@ def build_request(path, symbol, version):
     endpoint = f'{path}/{symbol}?limit={limit}&period={period}'
     data = get_fmp_data(endpoint, version)
     return data
+
+# returns discounted cashflow given a symbol
+@valuation_api.route('/discounted-cash-flow/<symbol>', methods=['GET'])
+def get_discounted_cashflow(symbol):
+    endpoint = f'discounted-cash-flow/{symbol}'
+    data = get_fmp_data(endpoint, 3)
+    return jsonify(data)
