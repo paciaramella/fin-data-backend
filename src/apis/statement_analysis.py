@@ -63,11 +63,13 @@ def get_financial_growth(symbol):
 # returns financial score given a symbol
 @statement_analysis_api.route('/score/<symbol>', methods=['GET'])
 def get_financial_score(symbol):
-    data = build_request('score', symbol, 4)
+    endpoint = f'score/{symbol}'
+    data = get_fmp_data(endpoint, 4)
     return jsonify(data)
 
 # returns enterprise values given a symbol
 @statement_analysis_api.route('/enterprise-values/<symbol>', methods=['GET'])
 def get_enterprise_values(symbol):
-    data = build_request('enterprise-values', symbol, 3)
+    endpoint = f'enterprise-values/{symbol}'
+    data = get_fmp_data(endpoint, 3)
     return jsonify(data)
