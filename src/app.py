@@ -6,6 +6,7 @@ from apis.statement_analysis import statement_analysis_api
 from apis.valuation import valuation_api
 from apis.price_targets import price_targets_api
 from apis.stock_news import stock_news_api
+from apis.earnings import earnings_api
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all domains
 
@@ -16,6 +17,7 @@ app.register_blueprint(statement_analysis_api)
 app.register_blueprint(valuation_api)
 app.register_blueprint(price_targets_api)
 app.register_blueprint(stock_news_api)
+app.register_blueprint(earnings_api)
 
 if __name__ == '__main__':
     app.run(debug=True)
