@@ -19,3 +19,10 @@ def get_historical_earnings_calendar(symbol):
     endpoint = f'historical/earning_calendar/{symbol}?limit={limit}'
     data = get_fmp_data(endpoint, 3)
     return jsonify(data)
+
+# returns earnings surprises for a stock
+@earnings_api.route('/earnings-surprises/<symbol>', methods=['GET'])
+def get_earnings_surprises(symbol):
+    endpoint = f'earnings-surprises/{symbol}'
+    data = get_fmp_data(endpoint, 3)
+    return jsonify(data)
